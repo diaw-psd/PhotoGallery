@@ -51,7 +51,7 @@ public class PhotoViewModel extends ViewModel {
                     }
 
                     @Override
-                    public void onNext(@NonNull PhotoResponse bookResponse) {
+                    public void onNext(@NonNull PhotoResponse photoResponse) {
                         if (mPhotoResponseLD == null) {
                             mPhotoResponseLD = new MutableLiveData<PhotoResponse>();
                         }
@@ -60,7 +60,7 @@ public class PhotoViewModel extends ViewModel {
                         //there's two ways to update livedata:
                         //setValue - update value when not in thread
                         //postValue - update value within a thread
-                        mPhotoResponseLD.postValue(bookResponse);
+                        mPhotoResponseLD.postValue(photoResponse);
                     }
 
                     @Override
@@ -81,7 +81,7 @@ public class PhotoViewModel extends ViewModel {
                 });
     }
 
-    public MutableLiveData<PhotoResponse> getmBookResponseLD() {
+    public MutableLiveData<PhotoResponse> getmPhotoResponseLD() {
         return mPhotoResponseLD;
     }
 }
