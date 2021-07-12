@@ -32,16 +32,16 @@ public class PhotoViewModel extends ViewModel {
         myRepo = new Repositorylmpl();
     }
 
-    public void makeNetworkCall(String searchQ,
+    public void makeNetworkCall(String imageType,
                                 String maxResults,
-                                String bookType) {
+                                String safesearch) {
 
         //since the viewmodel is where we have most of our data logic, and really,
         //our non-ui logic, we should have our thread handlers here
         //so, let's start up rxJava by making a call that's provided by our repository
         //coincidentally, it returns an observable (RxJava) object, so we can get straight
         //to work
-        myRepo.getPhotosFromNetwork(searchQ, maxResults, bookType)
+        myRepo.getPhotosFromNetwork(imageType, maxResults, safesearch)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<PhotoResponse>() {
