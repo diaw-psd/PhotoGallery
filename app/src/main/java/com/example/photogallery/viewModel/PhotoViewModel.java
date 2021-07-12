@@ -2,7 +2,6 @@ package com.example.photogallery.viewModel;
 
 import android.util.Log;
 
-import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
@@ -16,10 +15,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class PhotoViewModel extends ViewModel {
-
-
-    LiveData<PhotoResponse> _mPhotoResponseLD;
-
 
     MutableLiveData<PhotoResponse> mPhotoResponseLD;
 

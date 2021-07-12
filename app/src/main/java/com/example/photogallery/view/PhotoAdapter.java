@@ -69,7 +69,6 @@ public class PhotoAdapter extends RecyclerView.Adapter<PhotoAdapter.PhotoViewHol
             photoImage = (ImageView)itemView.findViewById(R.id.idIVPost);
             userImage = (ImageView) itemView.findViewById(R.id.idCVAuthor);
             itemView.setTag(itemView);
-            //this sets the default onClickListener to the view itself
             itemView.setOnClickListener(this);
 
         }
