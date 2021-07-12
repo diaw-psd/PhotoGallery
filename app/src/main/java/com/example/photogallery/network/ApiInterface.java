@@ -7,9 +7,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
-    //gets a response from your api
-    //build out the url
-    //=harry+potter&maxResults=5&printType=books
+
     @GET("api/")
     Observable<PhotoResponse> getPhotos(
             @Query("key") String key,

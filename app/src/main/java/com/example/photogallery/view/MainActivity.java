@@ -29,9 +29,6 @@ public class MainActivity extends AppCompatActivity implements PhotoClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //STEP 3B: Initialize your viewmodel...
-        //how do?
-        //use viewmodel providers
         mPhotoViewModel = ViewModelProviders.of(this).get(PhotoViewModel.class);
 
         //im just gonna hard code what i want to search

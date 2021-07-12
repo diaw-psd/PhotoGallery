@@ -17,12 +17,10 @@ import io.reactivex.schedulers.Schedulers;
 
 public class PhotoViewModel extends ViewModel {
 
-    //this is where all the data manipulation logic will be
 
-    //the value in this Livedata object here is not changeable; i.e. it's Read only
     LiveData<PhotoResponse> _mPhotoResponseLD;
 
-    //the value in this MutableLivedata is mutable
+
     MutableLiveData<PhotoResponse> mPhotoResponseLD;
 
     Repositorylmpl myRepo;
@@ -36,11 +34,6 @@ public class PhotoViewModel extends ViewModel {
                                 String maxResults,
                                 String safesearch) {
 
-        //since the viewmodel is where we have most of our data logic, and really,
-        //our non-ui logic, we should have our thread handlers here
-        //so, let's start up rxJava by making a call that's provided by our repository
-        //coincidentally, it returns an observable (RxJava) object, so we can get straight
-        //to work
         myRepo.getPhotosFromNetwork(key,imageType, maxResults, safesearch)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -55,22 +48,12 @@ public class PhotoViewModel extends ViewModel {
                         if (mPhotoResponseLD == null) {
                             mPhotoResponseLD = new MutableLiveData<PhotoResponse>();
                         }
-                        //now we update our livedata object...but
-                        //how do?
-                        //there's two ways to update livedata:
-                        //setValue - update value when not in thread
-                        //postValue - update value within a thread
+
                         mPhotoResponseLD.postValue(photoResponse);
                     }
 
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        //if we get some kind of error here when making a network call
-                        //or whatever data call we make
-                        //how do?
-                        //easy way is to do via databinding/viewbinding
-                        //but what if we dont want to use db/vb?
-                        //let's come back to this...
                         Log.d("rxjava", e.getMessage());
                     }
 
