@@ -10,8 +10,9 @@ public interface ApiInterface {
     //gets a response from your api
     //build out the url
     //=harry+potter&maxResults=5&printType=books
-    @GET("volumes")
+    @GET("api/")
     Observable<PhotoResponse> getPhotos(
+            @Query("key") String key,
             @Query("image_type") String imageType,
             @Query("per_page") String maxResults,
             @Query("safesearch") String safeSearch

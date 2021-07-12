@@ -12,6 +12,8 @@ import com.example.photogallery.R;
 import com.example.photogallery.model.PhotoResponse;
 import com.example.photogallery.viewModel.PhotoViewModel;
 
+import static com.example.photogallery.util.Constants.API_KEY;
+
 public class MainActivity extends AppCompatActivity {
 
     private PhotoViewModel mPhotoViewModel;
@@ -27,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         mPhotoViewModel = ViewModelProviders.of(this).get(PhotoViewModel.class);
 
         //im just gonna hard code what i want to search
-        mPhotoViewModel.makeNetworkCall(
+        mPhotoViewModel.makeNetworkCall( API_KEY,
                 "photo",
                 "50",
                 "true"
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 new Observer<PhotoResponse>() {
                     @Override
                     public void onChanged(PhotoResponse bookResponse) {
-
+                        System.out.println("THIS IS A TEST");
                     }
                 });
     }

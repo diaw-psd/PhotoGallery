@@ -9,8 +9,9 @@ import io.reactivex.Observable;
 
 public class Repositorylmpl implements Repository {
     @Override
-    public Observable<PhotoResponse> getPhotosFromNetwork(String imageType, String maxResults, String safeSearch) {
+    public Observable<PhotoResponse> getPhotosFromNetwork(String key,String imageType, String maxResults, String safeSearch) {
         return RetrofitClient.getClient().create(ApiInterface.class).getPhotos(
+                key,
                 imageType,
                 maxResults,
                 safeSearch

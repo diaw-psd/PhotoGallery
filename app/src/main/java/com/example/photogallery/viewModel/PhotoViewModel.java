@@ -32,7 +32,7 @@ public class PhotoViewModel extends ViewModel {
         myRepo = new Repositorylmpl();
     }
 
-    public void makeNetworkCall(String imageType,
+    public void makeNetworkCall(String key, String imageType,
                                 String maxResults,
                                 String safesearch) {
 
@@ -41,7 +41,7 @@ public class PhotoViewModel extends ViewModel {
         //so, let's start up rxJava by making a call that's provided by our repository
         //coincidentally, it returns an observable (RxJava) object, so we can get straight
         //to work
-        myRepo.getPhotosFromNetwork(imageType, maxResults, safesearch)
+        myRepo.getPhotosFromNetwork(key,imageType, maxResults, safesearch)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<PhotoResponse>() {

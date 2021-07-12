@@ -7,6 +7,7 @@ import io.reactivex.Observable;
 
 public interface Repository {
     Observable<PhotoResponse> getPhotosFromNetwork(
+            String key,
             String imageType,
             String maxResults,
             String safeSearch
